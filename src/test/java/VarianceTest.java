@@ -18,8 +18,8 @@ public class VarianceTest {
      * Tests for the following metamorphic relations:
      *
      * MEAN:
-     * mean --> numerator | [begin, length, values, weights],
-     * mean _||_ variance | [denominator, length, numerator],
+     * mean --> numerator | [begin, length, values, weights]
+     * mean _||_ variance | [denominator, length, numerator]
      * mean _||_ denominator | [begin, length, weights]
      *
      * LENGTH:
@@ -40,16 +40,16 @@ public class VarianceTest {
      *
      * NUMERATOR (unobserved):
      * numerator --> variance | [begin, denominator, length, mean, values, weights]
-     * numerator _||_ denominator | [begin, length, mean, values, weights] -- order here is ambiguous
+     * numerator _||_ denominator | [begin, length, mean, values, weights]
      *
      * DENOMINATOR (unobserved):
      * denominator --> variance | [begin, length, numerator, weights]
-     * denominator _||_ values | [begin, length, weights] -- order here is wrong: values is before denominator
+     * denominator _||_ values | [begin, length, weights]
      *
      * VARIANCE:
-     * variance _||_ begin | [denominator, length, numerator], -- order here is wrong
-     * variance _||_ values | [denominator, length, numerator], -- order here is wrong
-     * variance _||_ weights | [denominator, length, numerator], -- order here is wrong
+     * variance _||_ begin | [denominator, length, numerator]
+     * variance _||_ values | [denominator, length, numerator]
+     * variance _||_ weights | [denominator, length, numerator]
      */
     private Variance var;
     private int seed;
