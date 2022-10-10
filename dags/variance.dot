@@ -1,0 +1,13 @@
+digraph VarianceDAG {
+    mean -> numerator;
+    length -> numerator;
+    length -> variance;
+    length -> denominator;
+    begin -> numerator;
+    begin -> denominator;
+    values -> numerator;
+    weights -> numerator;
+    weights -> denominator;
+    numerator -> variance;
+    denominator -> variance;
+}
