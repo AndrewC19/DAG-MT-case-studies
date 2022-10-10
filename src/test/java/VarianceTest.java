@@ -63,7 +63,7 @@ public class VarianceTest {
     // MEAN
     @Test
     public void meanShouldCauseNumerator(){
-        // Define fixed inputs: values, weights, length, begin
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         int begin = generateInt(0, values.length - 2, this.seed);
@@ -113,7 +113,7 @@ public class VarianceTest {
 
     @Test
     public void meanShouldNotCauseDenominator(){
-        // Define fixed inputs: values, weights, length, begin
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         int begin = generateInt(0, values.length - 2, this.seed);
@@ -128,14 +128,14 @@ public class VarianceTest {
         double sourceVariance = (double) var.evaluate(values, weights, sourceMean, begin, length).get("denominator");
         double followUpVariance = (double) var.evaluate(values, weights, followUpMean, begin, length).get("denominator");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
     // LENGTH
     @Test
     public void lengthShouldCauseNumerator(){
-        // Define fixed inputs: values, weights, mean, begin
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -155,7 +155,7 @@ public class VarianceTest {
 
     @Test
     public void lengthShouldCauseVariance(){
-        // Define fixed inputs: values, weights, mean, begin
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -175,7 +175,7 @@ public class VarianceTest {
 
     @Test
     public void lengthShouldCauseDenominator(){
-        // Define fixed inputs: values, weights, mean, begin
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -196,7 +196,7 @@ public class VarianceTest {
     // BEGIN
     @Test
     public void beginShouldCauseNumerator(){
-        // Define fixed inputs: values, weights, mean, length
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -218,8 +218,7 @@ public class VarianceTest {
 
     @Test
     public void beginShouldCauseDenominator(){
-
-        // Define fixed inputs: values, weights, mean, length
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -241,7 +240,7 @@ public class VarianceTest {
 
     @Test
     public void beginShouldNotCauseVariance(){
-        // Define fixed inputs: values, weights, mean, length
+        // Define fixed inputs
         double[] values = generateDoubleArray(5, 1.0, 10.0, this.seed);
         double[] weights = generateDoubleArray(5, 5.0, 15.0, this.seed);
         double mean = generateDouble(0.5, 10.0, this.seed);
@@ -265,7 +264,7 @@ public class VarianceTest {
         double followUpVariance = (double) var.evaluate(values, weights, mean, followUpBegin, length,
                 fraction).get("variance");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
@@ -317,7 +316,7 @@ public class VarianceTest {
         double sourceVariance = (double) var.evaluate(sourceValues, weights, mean, begin, length).get("denominator");
         double followUpVariance = (double) var.evaluate(followUpValues, weights, mean, begin, length).get("denominator");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
@@ -350,7 +349,7 @@ public class VarianceTest {
         double followUpVariance = (double) var.evaluate(followUpValues, weights, mean, begin, length,
                 fraction).get("variance");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
@@ -435,7 +434,7 @@ public class VarianceTest {
         double followUpVariance = (double) var.evaluate(values, followUpWeights, mean, begin, length,
                 fraction).get("variance");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
@@ -499,7 +498,7 @@ public class VarianceTest {
         double followUpVariance = (double) var.evaluate(values, weights, mean, begin, length,
                 followUpFraction).get("denominator");
 
-        // The intervention should cause variance to change
+        // The intervention should not cause variance to change
         assertEquals(sourceVariance, followUpVariance, 0);
     }
 
