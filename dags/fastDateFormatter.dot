@@ -1,0 +1,9 @@
+digraph FastDateFormatterDAG {
+    pattern -> mRules;
+    timeZoneID -> mRules;
+    locale -> mRules;
+    mRules -> mMaxLengthEstimate;
+    mMaxLengthEstimate -> formattedString;
+    locale -> formattedString;
+    mRules -> formattedString;
+}

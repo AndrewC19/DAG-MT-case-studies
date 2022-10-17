@@ -1,3 +1,4 @@
+package apache.math;
 // Fixed version of Variance
 //import fixed.apache.math.Variance;
 
@@ -11,7 +12,6 @@ import static org.junit.Assert.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
 
 public class VarianceTest {
     /***
@@ -74,7 +74,8 @@ public class VarianceTest {
         double sourceMean = generateDouble(0.5, 100.0);
         double followUpMean = sourceMean * 2;
 
-        // Compute source and follow-up variances
+        // Compute source and
+        // follow-up variances
         double sourceVariance = (double) var.evaluate(values, weights, sourceMean, begin, length).get("numerator");
         double followUpVariance = (double) var.evaluate(values, weights, followUpMean, begin, length).get("numerator");
 
