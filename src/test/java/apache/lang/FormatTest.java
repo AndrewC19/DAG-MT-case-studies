@@ -43,7 +43,7 @@ public class FormatTest {
         this.inputConfig.put("year", "2010");
         this.inputConfig.put("month", "0");
         this.inputConfig.put("date", "1");
-        this.inputConfig.put("mRules", "");
+        this.inputConfig.put("mRules", ""); // i.e. do nothing to generated rules by default
         writeToConfigFile(this.inputConfig);
     }
 

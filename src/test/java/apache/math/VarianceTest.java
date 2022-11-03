@@ -163,12 +163,22 @@ public class VarianceTest {
         int begin = generateInt(0, values.length - 2, this.seed);
 
         // Length + begin cannot exceed the length of the array
-        int sourceLength = generateInt(1, values.length - begin, this.seed);
-        int followUpLength = sourceLength + 1;
+        int sourceLength = generateInt(2, values.length - begin, this.seed);
+
+        // Docs say that when length is zero, this should make variance 0
+        int followUpLength = 1;
+
+        // Adjust for numerator and denominator
+        double denominator = generateDouble(0.5, 100.0, this.seed);
+        double numerator = generateDouble(0.5, 100.0, this.seed);
+        Map<String, Double> fraction = new HashMap<String, Double>() {{
+            put("numerator", numerator);
+            put("denominator", denominator);
+        }};
 
         // Compute source and follow-up variances
-        double sourceVariance = (double) var.evaluate(values, weights, mean, begin, sourceLength).get("variance");
-        double followUpVariance = (double) var.evaluate(values, weights, mean, begin, followUpLength).get("variance");
+        double sourceVariance = (double) var.evaluate(values, weights, mean, begin, sourceLength, fraction).get("variance");
+        double followUpVariance = (double) var.evaluate(values, weights, mean, begin, followUpLength, fraction).get("variance");
 
         // The intervention should cause variance to change
         assertNotEquals(sourceVariance, followUpVariance);
